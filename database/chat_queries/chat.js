@@ -94,12 +94,13 @@ function inbox(userid,which){
     })
 }
 function fetch_chat(userid,to_id,which){
+    
     return new Promise(resolve=>{
         if(which==1){
-        seller_chats.find({
-            userid:userid,
-            "messages.to":to_id
-        }).then((res)=>{
+            seller_chats.find({
+                userid:userid,
+                'Messages.to':to_id
+            },'Messages.$').then((res)=>{
 
         
         resolve(res)
@@ -107,8 +108,8 @@ function fetch_chat(userid,to_id,which){
     }else{
             buyer_chats.find({
                 userid:userid,
-                "messages.to":to_id
-            }).then((res)=>{
+                "Messages.to":to_id
+            },'Messages.$').then((res)=>{
                 resolve(res)
             })
         }
