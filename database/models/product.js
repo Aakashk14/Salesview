@@ -24,7 +24,7 @@ const orders_Schema = new mongoose.Schema({
 })
 const items_Schema= new mongoose.Schema({
     Name:String,
-    description:String,
+    description:String,  // here using the file name where the real desc going to stored as to decrease size
     item_id:Number,
     File:Boolean,
     Images:String,
